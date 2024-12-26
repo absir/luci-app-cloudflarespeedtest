@@ -56,12 +56,13 @@ jobs:
           chmod +x /tmp/luci-app-cloudflarespeedtest/CONTROL/postinst
           wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/refs/heads/openwrt-24.10/scripts/ipkg-build && \
           chmod +x /tmp/ipkg-build && \
-          /tmp/ipkg-build /tmp/luci-app-cloudflarespeedtest /tmp
+          mkdir /tmp/build
+          /tmp/ipkg-build /tmp/luci-app-cloudflarespeedtest /tmp/build
           ls /tmp/
       
       - name: Upload Binary Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: luci-app-cloudflarespeedtest_${{ env.version }}_all.ipk
-          path: /tmp/
+          path: /tmp/build
           retention-days: 1 
