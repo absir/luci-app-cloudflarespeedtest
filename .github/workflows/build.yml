@@ -1,9 +1,10 @@
 on:
   workflow_dispatch:
-  push:
-#     Sequence of patterns matched against refs/tags
-    tags:
-    - '*' # Tag events
+    inputs:
+      env:
+        description: '描述'
+        required: true
+        default: '默认参数'
 
 name: Upload Release Asset
 
