@@ -56,7 +56,8 @@ jobs:
           chmod +x /tmp/luci-app-cloudflarespeedtest/CONTROL/postinst
           wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/refs/heads/openwrt-24.10/scripts/ipkg-build && \
           chmod +x /tmp/ipkg-build && \
-          /tmp/ipkg-build -o root -g root /tmp/luci-app-cloudflarespeedtest /tmp
+          /tmp/ipkg-build /tmp/luci-app-cloudflarespeedtest /tmp
+          ls /tmp/
           
       - name: Create Release
         id: create_release
