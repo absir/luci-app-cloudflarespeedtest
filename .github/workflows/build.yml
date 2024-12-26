@@ -58,11 +58,12 @@ jobs:
           chmod +x /tmp/ipkg-build && \
           mkdir /tmp/build
           /tmp/ipkg-build /tmp/luci-app-cloudflarespeedtest /tmp/build
-          ls /tmp/
+          ls /tmp/build/
       
       - name: Upload Binary Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: luci-app-cloudflarespeedtest_${{ env.version }}_all.ipk
-          path: /tmp/build
+          path: |
+                  /tmp/build/
           retention-days: 1 
