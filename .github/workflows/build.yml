@@ -53,7 +53,7 @@ jobs:
           EOF
           chmod +x /tmp/luci-app-cloudflarespeedtest/usr/bin/cloudflarespeedtest/*.sh
           chmod +x /tmp/luci-app-cloudflarespeedtest/CONTROL/postinst
-          wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/openwrt-18.06/scripts/ipkg-build && \
+          wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/refs/heads/openwrt-24.10/scripts/ipkg-build && \
           chmod +x /tmp/ipkg-build && \
           /tmp/ipkg-build -o root -g root /tmp/luci-app-cloudflarespeedtest /tmp
           
@@ -74,6 +74,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: /tmp/luci-app-cloudflarespeedtest_${{ env.version }}_all.ipk
-          asset_name: luci-app-cloudflarespeedtest_${{ env.version }}_all.ipk
+          asset_path: /tmp/luci-app-cloudflarespeedtest_${{ env.version }}_all.apk
+          asset_name: luci-app-cloudflarespeedtest_${{ env.version }}_all.apk
           asset_content_type: application/octet-stream
